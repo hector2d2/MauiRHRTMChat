@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="RHRTMChat.Views.ChatPage"
+             Title="ChatPage">
+    <VerticalStackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <toolkit:AvatarView ImageSource="data:image/jpeg;base64,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"
+                                WidthRequest="55"
+                                HeightRequest="55"
+                                CornerRadius="27.5"
+                                Grid.Column="0"
+                                Margin="4,0"/>
+            <VerticalStackLayout VerticalOptions="Center"
+                                 Margin="0,0,4,0"
+                                 Grid.Column="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Hector Ricardo"
+                           FontAttributes="Bold"
+                           Grid.Column="0"/>
+                    <Label Text="10:19"
+                           HorizontalTextAlignment="End"
+                           TextColor="LightGray"
+                           Grid.Column="1"/>
+                </Grid>
+                <Label Text="Te ha enviado un sticker"
+                       TextColor="LightGray"/>
+            </VerticalStackLayout>
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding GoToChatCommand}"/>
+            </Grid.GestureRecognizers>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

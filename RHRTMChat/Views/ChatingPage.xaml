@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RHRTMChat.Views.ChatingPage"             
+             Shell.TabBarIsVisible="False">
+     <Shell.TitleView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            <HorizontalStackLayout Grid.Column="0">
+                <VerticalStackLayout>
+                    <Label Text="Hector Ricardo"
+                           />
+                    <Label Text="Ult. hoy a las 17:00"
+                           />
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+            <Button Text="Camara"
+                    Margin="4,0"
+                    Grid.Column="1"
+                    HorizontalOptions="EndAndExpand"/>
+            <Button Text="Video"
+                    Grid.Column="2"
+                    Margin="4,0"
+                    HorizontalOptions="EndAndExpand"/>
+        </Grid>
+    </Shell.TitleView>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Label Text="Chats"
+               Grid.Row="0"/>
+
+        <Grid Grid.Row="1"
+              Margin="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            <Entry VerticalOptions="End"                   
+                   Grid.Column="0"/>
+            <Frame BackgroundColor="Blue"
+                   VerticalOptions="End"
+                   HeightRequest="40"
+                   Grid.Column="1"
+                   CornerRadius="20">
+            </Frame>
+        </Grid>
+    </Grid>
+</ContentPage>
