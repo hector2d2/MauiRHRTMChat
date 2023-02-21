@@ -4,7 +4,7 @@
              x:Class="RHRTMChat.Views.ChatingPage"             
              Shell.TabBarIsVisible="False">
      <Shell.TitleView>
-        <Grid>
+        <Grid >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="40"/>
@@ -18,27 +18,38 @@
                            />
                 </VerticalStackLayout>
             </HorizontalStackLayout>
-            <Button Text="Camara"
-                    Margin="4,0"
-                    Grid.Column="1"
-                    HorizontalOptions="EndAndExpand"/>
-            <Button Text="Video"
-                    Grid.Column="2"
-                    Margin="4,0"
-                    HorizontalOptions="EndAndExpand"/>
+            <ImageButton Source="video"
+                         Margin="4,0"
+                         Grid.Column="1"
+                         HorizontalOptions="EndAndExpand"/>
+            <ImageButton Source="phone"
+                         Grid.Column="2"
+                         Margin="4,0"
+                         HorizontalOptions="EndAndExpand"/>
         </Grid>
     </Shell.TitleView>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
-        
-        <Label Text="Chats"
-               Grid.Row="0"/>
-
+        <VerticalStackLayout Grid.Row="0"
+                             VerticalOptions="End"
+                             Margin="8">
+            <HorizontalStackLayout VerticalOptions="End"
+                                   HorizontalOptions="Start"
+                                   BackgroundColor="Green">
+                <Label Text="hola"/>                
+            </HorizontalStackLayout>
+            <HorizontalStackLayout VerticalOptions="End"
+                                   HorizontalOptions="End"
+                                   BackgroundColor="Blue">
+                <Label Text="hola"/>                
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
         <Grid Grid.Row="1"
-              Margin="8">
+              BackgroundColor="Red"
+              Margin="12">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="40"/>
@@ -46,6 +57,7 @@
             <Entry VerticalOptions="End"                   
                    Grid.Column="0"/>
             <Frame BackgroundColor="Blue"
+                   Margin="1"
                    VerticalOptions="End"
                    HeightRequest="40"
                    Grid.Column="1"

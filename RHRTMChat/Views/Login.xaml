@@ -9,6 +9,6 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
         <Button Text="Iniciar Sesión"
-                Clicked="Button_Clicked"/>
+                Command="{Binding SignInCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

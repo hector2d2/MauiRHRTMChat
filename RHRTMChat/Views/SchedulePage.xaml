@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:converters="clr-namespace:RHRTMChat.Converters"
+             x:Class="RHRTMChat.Views.SchedulePage"
+             x:Name="scheduleReference"
+             Title="SchedulePage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:IsValidDayConverter x:Key="IsValidDayConverter"/>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid RowDefinitions="Auto,Auto,Auto"
+          ColumnDefinitions="*">
+        <Grid ColumnDefinitions="Auto,*,Auto">
+            <Button Text="Atras"
+                    Command="{Binding BackMonthCommand}"/>
+            <Label Text="{Binding MonthName}"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   Grid.Column="1"/>
+            <Button Text="Adelante"
+                    Command="{Binding NextMonthCommand}"
+                    Grid.Column="2"/>
+        </Grid>
+        <Grid ColumnDefinitions=".14*,.14*,.14*,.14*,.14*,.14*,.14*"
+              Grid.Row="1">            
+            <Label Text="D"
+                   HorizontalOptions="Center"/>
+            <Label Text="L"
+                   HorizontalOptions="Center"
+                    Grid.Column="1"/>
+            <Label Text="M"
+                   HorizontalOptions="Center"
+                    Grid.Column="2"/>
+            <Label Text="M"
+                   HorizontalOptions="Center"
+                    Grid.Column="3"/>
+            <Label Text="J"
+                   HorizontalOptions="Center"
+                    Grid.Column="4"/>
+            <Label Text="V"
+                   HorizontalOptions="Center"
+                    Grid.Column="5"/>
+            <Label Text="S"
+                   HorizontalOptions="Center"
+                    Grid.Column="6"/>
+        </Grid>
+        <CollectionView ItemsSource="{Binding Calendar}"  
+                        BackgroundColor="White"
+                        Grid.Row="2">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Span="7" 
+                                 Orientation="Vertical"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <ContentView BackgroundColor="White">
+                        <ContentView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Path=BindingContext.GoToScheduleDetailCommand,Source={x:Reference scheduleReference}}"
+                                                  CommandParameter="{Binding .}"/>
+                        </ContentView.GestureRecognizers>
+                        <Grid RowDefinitions="60,Auto">
+                            <Grid RowDefinitions="Auto,Auto"
+                                  Margin="0,8,0,8"
+                                    IsVisible="{Binding IsToday}">
+                                <Border Grid.Column="0"                                            
+                                        BackgroundColor="Red"
+                                        WidthRequest="30"
+                                        HeightRequest="30"
+                                        StrokeShape="RoundRectangle 80">
+                                    <Label Text="{Binding NumberDay}"
+                                            TextColor="White"
+                                            VerticalTextAlignment="Center"                                           
+                                            HorizontalTextAlignment="Center" />
+                                </Border>
+                                <Border HeightRequest="10"
+                                        Margin="0,8,0,0"
+                                        Grid.Row="1"
+                                        StrokeShape="RoundRectangle 80"
+                                        BackgroundColor="Gray"
+                                        WidthRequest="10"/>
+                            </Grid>
+                            <Grid RowDefinitions="Auto,Auto"
+                                  Margin="0,8,0,8"
+                                    IsVisible="{Binding IsToday, Converter={x:StaticResource InvertedBoolConverter}}">                                    
+                                <Label Text="{Binding NumberDay}"
+                                        WidthRequest="30"
+                                        HeightRequest="30"
+                                        VerticalTextAlignment="Center"
+                                        TextColor="Black"
+                                        HorizontalTextAlignment="Center"/>                                    
+                                <Border HeightRequest="10"
+                                        Grid.Row="1"
+                                        IsVisible="{Binding NumberDay, Converter={x:StaticResource IsValidDayConverter}}"
+                                        StrokeShape="RoundRectangle 80"
+                                        BackgroundColor="Gray"
+                                        WidthRequest="10"/>
+                            </Grid>
+                            <BoxView Grid.Row="1"
+                                     IsVisible="{Binding NumberDay, Converter={x:StaticResource IsValidDayConverter}}"
+                                     Color="Gray"
+                                     HeightRequest="0.5"/>
+
+                        </Grid>
+                        
+                    </ContentView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

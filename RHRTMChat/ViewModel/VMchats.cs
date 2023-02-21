@@ -11,8 +11,15 @@ namespace RHRTMChat.ViewModel
 		[RelayCommand]
 		async void GoToChat()
 		{
-			await Shell.Current.GoToAsync(nameof(ChatingPage));
-		}
+			//await Shell.Current.GoToAsync(nameof(ChatingPage));
+            await Shell.Current.GoToAsync($"//{nameof(SchedulePage)}");
+        }
+
+		[RelayCommand]
+		async void GoToMenuCreateGroup()
+		{
+            await Shell.Current.GoToAsync(nameof(MenuCreateGroupContact));
+        }
 	}
 }
 

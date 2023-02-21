@@ -31,7 +31,15 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
-	  <EnableCodeSigning>false</EnableCodeSigning>
+	  <CodesignKey>Apple Development: RICARDO MAR TREVINO (GFX5X8XU86)</CodesignKey>
+	  <CreatePackage>false</CreatePackage>
+	  <CodesignProvision>iOS Team Provisioning Profile: *</CodesignProvision>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-maccatalyst|AnyCPU'">
+	  <CreatePackage>false</CreatePackage>
+	  <CodesignKey>Mac Developer</CodesignKey>
+	  <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
+	  <EnableCodeSigning>False</EnableCodeSigning>
 	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
@@ -43,15 +51,21 @@
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiFont Include="Resources\Fonts\*" />
+		<MauiImage Update="Resources\Images\*.gif" Resize="False" />
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+
+		<MauiImage Include="Resources\Gifs\blptriste.gif" Resize="False" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0-rc.1.22426.10" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
-		<PackageReference Include="CommunityToolkit.Maui" Version="1.3.0" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="3.1.0" />
+		<PackageReference Include="Microsoft.Maui.Controls.Maps" Version="7.0.49" />
+		<PackageReference Include="Mopups" Version="1.1.0" />
+		<PackageReference Include="Syncfusion.Maui.Scheduler" Version="20.4.50" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -65,11 +79,38 @@
 	  <None Remove="Resources\Images\status.png" />
 	  <None Remove="Resources\Images\telephone.png" />
 	  <None Remove="CommunityToolkit.Maui" />
+	  <None Remove="MyControllers\" />
+	  <None Remove="Sm.Maui.BottomSheet" />
+	  <None Remove="Microsoft.Maui.Controls.Maps" />
+	  <None Remove="Drawables\" />
+	  <None Remove="Resources\Images\login.png" />
+	  <None Remove="Resources\Images\registroasistencia.png" />
+	  <None Remove="Resources\Images\gafete.png" />
+	  <None Remove="Resources\Images\realizarencuestas.png" />
+	  <None Remove="Resources\Gifs\Btriste.gif" />
+	  <None Remove="Resources\Images\Btriste.gif" />
+	  <None Remove="Popups\" />
+	  <None Remove="Mopups" />
+	  <None Remove="Resources\Gifs\" />
+	  <None Remove="Messenger\" />
+	  <None Remove="Data\" />
+	  <None Remove="Resources\Gifs\BLP-Triste.gif" />
+	  <None Remove="Resources\Gifs\blptriste.gif" />
+	  <None Remove="Converters\" />
+	  <None Remove="Resources\Fonts\Free-Regular-400.otf" />
+	  <None Remove="Resources\Fonts\Free-Solid-900.otf" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Views\" />
 	  <Folder Include="ViewModel\" />
 	  <Folder Include="Models\" />
+	  <Folder Include="MyControllers\" />
+	  <Folder Include="Drawables\" />
+	  <Folder Include="Popups\" />
+	  <Folder Include="Resources\Gifs\" />
+	  <Folder Include="Messenger\" />
+	  <Folder Include="Data\" />
+	  <Folder Include="Converters\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <MauiXaml Update="Views\Login.xaml">
@@ -90,15 +131,38 @@
 	  <MauiXaml Update="Views\SettingsPage.xaml">
 	    <SubType></SubType>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ChatPage.xaml">
+	  <MauiXaml Update="Views\ChatingPage.xaml">
 	    <SubType></SubType>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ChatingPage.xaml">
+	  <MauiXaml Update="Views\OnBoarding.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\AnimationGif.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Popups\popup1.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Popups\popup2.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\CallPageAdd.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\CallPageDelete.xaml">
 	    <SubType></SubType>
 	  </MauiXaml>
 	</ItemGroup>
 	<ItemGroup>
-	  <BundleResource Include="**/*" />
-	  <BundleResource Include="Resources\Images\camera.png" />
+	  <None Include="Controllers\BottomSheet.xaml" />
+	  <None Include="Controllers\BottomSheet.xaml" />
+	  <None Include="MyControllers\CbottomSheet.xaml" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Remove="Controllers\BottomSheet.xaml.cs" />
+	  <Compile Remove="Controllers\BottomSheet.xaml.cs" />
+	</ItemGroup>
+	<ItemGroup>
+	  <BundleResource Include="Resources\Gifs\blptriste.gif" />
 	</ItemGroup>
 </Project>

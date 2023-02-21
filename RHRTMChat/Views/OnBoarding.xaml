@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:RHRTMChat.ViewModel"
+             xmlns:models="clr-namespace:RHRTMChat.Models"
+             x:DataType="viewmodel:VMonBoarding"
+             x:Name="VonBoarding"
+             x:Class="RHRTMChat.Views.OnBoarding"
+             BackgroundColor="#013d7c"
+             Shell.NavBarIsVisible="False">    
+    <ContentPage.BindingContext>
+        <viewmodel:VMonBoarding x:Name="vmOnBoarding"/>
+    </ContentPage.BindingContext>
+    <ContentView>
+        <ContentView.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#013d7c" Offset="0.1" />
+                <GradientStop Color="#cbcbcb" Offset="1.0" />
+            </LinearGradientBrush>
+        </ContentView.Background>
+        <VerticalStackLayout Margin="10"
+                             VerticalOptions="Center">
+            <CarouselView ItemsSource="{Binding OnBoardingItems}"                          
+                          HeightRequest="550"
+                          VerticalOptions="Center"
+                          Loop="False"
+                          IndicatorView="indicatorView">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate x:DataType="models:MonBoarningItems">
+                        <Grid VerticalOptions="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="400"/>
+                                <RowDefinition Height="150"/>
+                            </Grid.RowDefinitions>
+                            
+                            <Image Source="{Binding PathImage}"
+                                   Grid.Row="0"/>
+                            <VerticalStackLayout Grid.Row="1"
+                                                 Margin="18">
+                                <Label Text="{Binding Description}"
+                                       FontSize="Medium"
+                                       TextColor="Black"/>
+                                <Button IsVisible="{Binding IsFinalView}"
+                                        FontSize="Medium"
+                                        Margin="0,8"
+                                        FontAttributes="Bold"
+                                        Command="{Binding GoToHomePageCommand, Source={x:Reference vmOnBoarding}}"
+                                        Text="Entrar"/>
+                            </VerticalStackLayout>                                   
+                        </Grid>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <IndicatorView x:Name="indicatorView"                           
+                           VerticalOptions="Center"
+                           IndicatorSize="10"
+                           IndicatorsShape="Circle"
+                           IndicatorColor="LightGray"
+                           SelectedIndicatorColor="Black"
+                           HorizontalOptions="Center"
+                           Margin="0,0,0,40" />
+        </VerticalStackLayout>
+    </ContentView>
+</ContentPage>

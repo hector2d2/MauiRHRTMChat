@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RHRTMChat.Views.CreateNewContact"
+             Title="Crear un nuevo contacto">
+    <VerticalStackLayout>
+        <Label Text="Ingresa el correo del contacto"/>
+        <Grid BackgroundColor="Red"
+              Margin="12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            <Entry VerticalOptions="End"                   
+                   Grid.Column="0"/>
+            <Frame BackgroundColor="Blue"
+                   Margin="1"
+                   VerticalOptions="End"
+                   HeightRequest="40"
+                   Grid.Column="1"
+                   CornerRadius="20">
+            </Frame>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

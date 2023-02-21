@@ -6,12 +6,24 @@
     xmlns:views="clr-namespace:RHRTMChat.Views"
     Shell.FlyoutBehavior="Disabled">
 
+    <!--<ShellContent
+        Title="Gif"
+        ContentTemplate="{DataTemplate views:AnimationGif}"
+        Route="Gif" />-->
+
+    <!--<ShellContent
+        Title="Presentacion"
+        ContentTemplate="{DataTemplate views:OnBoarding}"
+        Route="Presentation" />-->
+
     <ShellContent
         Title="Iniciar Sesion"
         ContentTemplate="{DataTemplate views:Login}"
         Route="Login" />
 
-    <TabBar Route="Home">
+    <!--<TabBar Route="Home"
+            Title="Home Menu"
+            x:Name="RHome">
         <Tab Title="Estados"
              Icon="status">
             <ShellContent ContentTemplate="{DataTemplate views:StatusPage}"/>
@@ -32,6 +44,6 @@
              Icon="settings">
             <ShellContent ContentTemplate="{DataTemplate views:SettingsPage}"/>
         </Tab>
-    </TabBar>
+    </TabBar>-->
 </Shell>
 

@@ -11,12 +11,17 @@ namespace RHRTMChat
             //ViewModal
             service.AddSingleton<VMsettings>();
             service.AddSingleton<VMchats>();
-            service.AddSingleton<VMchating>();
+            service.AddSingleton<VMchating>(); 
+            service.AddSingleton<VMmenucreategroupContact>();
+            service.AddSingleton<VMonBoarding>();
+            service.AddSingleton<VMschedule>();
 
             // Views
             service.AddSingleton<SettingsPage>();
             service.AddSingleton<ChatPage>();
             service.AddSingleton<ChatingPage>();
+            service.AddSingleton<MenuCreateGroupContact>();
+            service.AddSingleton<SchedulePage>();
         }
 	}
 }

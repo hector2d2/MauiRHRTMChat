@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="RHRTMChat.Views.MenuCreateGroupContact"
+             Title="Selecciona un contacto">
+    <VerticalStackLayout>
+         <Grid HeightRequest="80">           
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border WidthRequest="60"
+                        Margin="8"
+                        HeightRequest="60"
+                        Grid.Column="0"
+                        BackgroundColor="BlueViolet"
+                        StrokeShape="RoundRectangle 50">
+                    <Image Source="adduser"
+                           HeightRequest="30"
+                           WidthRequest="30"/>
+                </Border>
+                <Label Text="Nuevo Amigo"
+                       Margin="8,0,0,0"
+                       VerticalOptions="Center"
+                       Grid.Column="1"/>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoToCreateContactCommand}"/>
+                </Grid.GestureRecognizers>            
+         </Grid>
+         <BoxView HeightRequest="1"
+                  HorizontalOptions="Fill"
+                  Color="gray"/>            
+         <Grid HeightRequest="80">           
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border WidthRequest="60"
+                        Margin="8"
+                        HeightRequest="60"
+                        Grid.Column="0"
+                        BackgroundColor="BlueViolet"
+                        StrokeShape="RoundRectangle 50">
+                    <Image Source="addgroupuser"
+                           HeightRequest="30"
+                           WidthRequest="30"/>
+                </Border>
+                <Label Text="Nuevo Grupo"
+                       Margin="8,0,0,0"
+                       VerticalOptions="Center"
+                       Grid.Column="1"/>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoToChatCommand}"/>
+                </Grid.GestureRecognizers>            
+         </Grid>
+    </VerticalStackLayout>
+</ContentPage>
